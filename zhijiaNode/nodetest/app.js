@@ -1,2 +1,3 @@
 var server = require('./http.js');
-server.start()
+var router = require("./router");
+server.start(router.route)
