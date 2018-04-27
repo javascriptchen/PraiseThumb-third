@@ -4,13 +4,13 @@ var app = express();
 var urlencodedParser = bodyParser.urlencoded({
   extended: false
 })
-app.use(express.static('public'));
+app.use(express.static('public')); //设置静态资源文件目录
 
 app.get('/index', function (req, res) {
-  res.sendFile(__dirname + "/views/" + "index.html")
+  res.sendFile(__dirname + "/views/" + "index.html")// 访问/index时，映射到view 下的index.html
 })
 app.post('/index', urlencodedParser, function (req, res) {
-  res.redirect("https://www.baidu.com/s?tn=99006304_6_oem_dg&isource=infinity&wd="+req.body.data+"")
+  res.redirect("https://www.baidu.com/s?tn=99006304_6_oem_dg&isource=infinity&wd=" + req.body.data + "")
 })
 
 var server = app.listen(8081, function () {
@@ -21,4 +21,4 @@ var server = app.listen(8081, function () {
 // 3.app.get 设置基础的路由，然后吐出数据
 // 4.平时的请求都是get，浏览器直接敲
 // 5.get post put delete 
-// req.query req.params res.send() res.json()
+// req.query req.params res.send() res.json() res.redirect() res.render()
