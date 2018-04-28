@@ -1,5 +1,5 @@
 var express = require('express');
-var bodyParser = require('body-parser');
+var bodyParser = require('body-parser'); //请求体中的参数
 var app = express();
 var urlencodedParser = bodyParser.urlencoded({
   extended: false
@@ -7,7 +7,7 @@ var urlencodedParser = bodyParser.urlencoded({
 app.use(express.static('public')); //设置静态资源文件目录
 
 app.get('/index', function (req, res) {
-  res.sendFile(__dirname + "/views/" + "index.html")// 访问/index时，映射到view 下的index.html
+  res.sendFile(__dirname + "/views/" + "index.html") // 访问/index时，映射到view 下的index.html
 })
 app.post('/index', urlencodedParser, function (req, res) {
   res.redirect("https://www.baidu.com/s?tn=99006304_6_oem_dg&isource=infinity&wd=" + req.body.data + "")
