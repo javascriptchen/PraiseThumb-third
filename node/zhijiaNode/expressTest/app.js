@@ -10,7 +10,11 @@ app.use(function (req, res, next) {
   next();
 })
 app.get('/index', function (req, res, next) {
-  res.send('index');
+  req.data = 123;
+  next();
+}, function (req, res, next) {
+  console.log(req.data);
+  res.send("123");
 });
 app.get('/go', function (req, res, next) {
   res.send('go')
