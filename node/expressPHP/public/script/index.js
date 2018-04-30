@@ -9,7 +9,7 @@ $(function () {
         username: $('#username').val()
       },
       success: function (data) {
-        console.log(data);
+        alert(data.msg);
       },
       error: function () {
         alert(error);
