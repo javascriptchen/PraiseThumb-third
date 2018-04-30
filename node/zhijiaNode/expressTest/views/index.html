@@ -1,21 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'layout.html' %}
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="stylesheets/index.css">
-  <title>测试首页</title>
-</head>
+{% block title %}{{title}} {%endblock%}
 
-<body>
-  test
-  <form action="/index" method="post">
-    <input type="text" name="data">
-    <input type="submit" value="提交">
-  </form>
-  <script src="script/index.js"></script>
-</body>
+{% block head %}
+<link rel="stylesheet" href="stylesheets/index.css">
+{% endblock %}
 
-</html>
+{% block content %}
+<p>{{data}}</p>
+{% endblock %}
