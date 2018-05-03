@@ -1,1 +1,3 @@
-console.log(111);
+window.add = function(num){
+  return num+1;
+}
