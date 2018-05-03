@@ -10,7 +10,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "koa": "^2.5.1"
+    "co": "^4.6.0",
+    "koa": "^2.5.1",
+    "koa-simple-router": "^0.2.0",
+    "koa-static": "^4.0.2",
+    "koa-swig": "^2.2.1",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "babel": "^6.23.0",
