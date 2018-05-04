@@ -13,9 +13,8 @@
 		}
 		public function getConnection(){
 			try {
-			    $dsn  = "mysql:host=$this->servername;dbname = $this->dbname";
-          $this->con = new PDO($dsn, $this->username, $this->password);
-          echo $dsn;
+			    $dsn="mysql:host=$this->servername;dbname=$this->dbname";
+				$this->con = new PDO($dsn, $this->username, $this->password);
 			}
 			catch(PDOException $e)
 			{
@@ -25,13 +24,11 @@
 		public function updateData($sql){
 			if($this->con==null){
 				$this->getConnection();
-      }
+    		}
       
 			// header('content-type:application/json;charset=utf-8');
-      $res = $this->con->exec($sql);
-      echo $res;
-			$arr = array('result'=>$res);
-			echo json_encode($arr);
+			$res = $this->con->exec($sql);
+			echo $res;
 			$this->closeCon();
 		}
 		public function closeCon(){
