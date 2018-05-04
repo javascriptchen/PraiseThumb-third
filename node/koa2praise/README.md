@@ -9,3 +9,4 @@ koa-swig 模板
 koa-static 静态资源配置
 babel-polyfill babel-register 编译es7以及更高的
 views的path不要重复引用，找不到路径
+连接mysql，不要有空格
