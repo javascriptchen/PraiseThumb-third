@@ -1,7 +1,7 @@
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -12,51 +12,63 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+var f = '';
+
 var PraiseButton = function () {
-    function PraiseButton(num, ele) {
-        _classCallCheck(this, PraiseButton);
+  function PraiseButton(num, ele) {
+    _classCallCheck(this, PraiseButton);
 
-        this.num = num;
-        this.ele = ele;
-    }
+    this.num = num;
+    this.ele = ele;
+  }
 
-    _createClass(PraiseButton, [{
-        key: "clickAddNum",
-        value: function clickAddNum() {
-            var _this = this;
+  _createClass(PraiseButton, [{
+    key: "clickAddNum",
+    value: function clickAddNum() {
+      var _this = this;
 
-            this.ele.click(function () {
-                if (_this.num < 10) {
-                    _this.ele.css("-webkit-filter", "grayscale(0)");
-                    $('#animation').addClass('num');
-                    _this.num = add(_this.num);
-                    setTimeout(function () {
-                        $('#animation').removeClass('num');
-                    }, 1000);
-                } else {
-                    _this.ele.css("-webkit-filter", "grayscale(1)");
-                    _this.num = 0;
-                }
-                console.log(_this.num);
-            });
+      this.ele.click(function () {
+        if (f) {
+          clearTimeout(f);
         }
-    }]);
+        f = setTimeout(function () {
+          if (_this.num < 10) {
+            _this.ele.css("-webkit-filter", "grayscale(0)");
+            $('#animation').addClass('num');
+            _this.num = add(_this.num);
+            setTimeout(function () {
+              $('#animation').removeClass('num');
+            }, 1000);
+          } else {
+            _this.ele.css("-webkit-filter", "grayscale(1)");
+            _this.num = 0;
+          }
+          axios.get('/index/update').then(function (response) {
+            console.log(response);
+          }).catch(function (error) {
+            console.log(error);
+          });
+          console.log(_this.num);
+        }, 800);
+      });
+    }
+  }]);
 
-    return PraiseButton;
+  return PraiseButton;
 }();
 
 var Thumb = function (_PraiseButton) {
-    _inherits(Thumb, _PraiseButton);
+  _inherits(Thumb, _PraiseButton);
 
-    function Thumb(num, ele) {
-        _classCallCheck(this, Thumb);
+  function Thumb(num, ele) {
+    _classCallCheck(this, Thumb);
 
-        return _possibleConstructorReturn(this, (Thumb.__proto__ || Object.getPrototypeOf(Thumb)).call(this, num, ele));
-    }
+    return _possibleConstructorReturn(this, (Thumb.__proto__ || Object.getPrototypeOf(Thumb)).call(this, num, ele));
+  }
 
-    return Thumb;
+  return Thumb;
 }(PraiseButton);
 
 exports.default = {
-    Thumb: Thumb
+  Thumb: Thumb
 };

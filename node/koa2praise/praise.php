@@ -23,14 +23,18 @@
 		}
 		public function updateData($sql){
 			if($this->con==null){
-				$this->getConnection();
-    		}
-      
-			// header('content-type:application/json;charset=utf-8');
-			$res = $this->con->exec($sql);
-			echo $res;
-			$this->closeCon();
-		}
+						$this->getConnection();
+				}
+				//向前台输出 json 格式的数据
+				header('content-type:application/json;charset=utf8');
+				//  執行sql
+				$res = $this->con->exec($sql);
+				$arr = array('result'=>$res);
+				echo $arr;
+				//  关闭连接
+				$this->closeCon();
+			/*   return $res; */
+		}	
 		public function closeCon(){
 			$this->con = null;
 		}

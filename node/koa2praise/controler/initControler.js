@@ -13,7 +13,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var controllerInit = {
   init: function init(app, router) {
     app.use(router(function (_) {
-      _.get('/index/index', _indexControler2.default.index());
+      _.get('/index/index', _indexControler2.default.index()), _.get('/index/update', _indexControler2.default.update());
     }));
   }
 };
