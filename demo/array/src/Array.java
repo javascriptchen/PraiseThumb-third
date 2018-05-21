@@ -107,6 +107,37 @@ public class Array {
         return -1;
     }
 
+    // 从数组中删除index位置的元素, 返回删除的元素
+    public int remove(int index){
+        if(index<0||index>=size){
+            throw new IllegalArgumentException("Set failed. Index is illegal.");
+        }
+        int ret = data[index];
+        for(int i = index ; i <size ; i--){
+            data[i] = data[i+1];
+        }
+        size--;
+        return ret;
+    }
+
+    // 从数组中删除第一个元素, 返回删除的元素
+    public int removeFirst(){
+        return remove(0);
+    }
+
+    // 从数组中删除最后一个元素, 返回删除的元素
+    public int removeLast(){
+        return remove(size - 1);
+    }
+
+    // 从数组中删除元素e
+    public void removeElement(int e){
+        int index = find(e);
+        if(index != -1){
+            remove(index);
+        }
+    }
+
     @Override
 
     public String toString(){
