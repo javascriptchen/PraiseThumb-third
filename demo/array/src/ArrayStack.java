@@ -53,5 +53,6 @@ public class ArrayStack<E> implements Stack<E> {
             }
         }
         res.append("] top");
+        return res.toString();
     }
 }
