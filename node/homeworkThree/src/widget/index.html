@@ -5,7 +5,6 @@
     <link rel="stylesheet" href="/css/index.css">
     <script src="/js/indexadd.js"></script>
     <script src="https://cdn.bootcss.com/jquery/3.2.0/jquery.js"></script>
-    <script src="https://cdn.bootcss.com/systemjs/0.20.19/system.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.bootcss.com/x-tag/1.5.11/x-tag-core.js"></script>
     <script src="/js/tag.es6"></script>
@@ -21,19 +20,5 @@
     <div class="hide" id="animation">+1</div>
  </div> -->
 
- <script type="text/javascript" >
-     SystemJS.config({
-         baseURL: '/js'
-     });
-     SystemJS.import('index-es.js').then(function(m){
-         $.extend({
-             thumb: m.default.Thumb
-         })
-         callback();
-     })
-     function callback(){
-         var t = new $.thumb(0,$('#thumb'));
-         t.clickAddNum();
-     }
- </script>
+ 
 {% endblock %}

@@ -1,11 +1,13 @@
-
 const gulp = require('gulp');
 const babel = require('gulp-babel');
- 
-gulp.task('default', () =>
-    gulp.src('src/app.js')
-        .pipe(babel({
-            presets: ['env']
-        }))
-        .pipe(gulp.dest('dist'))
+
+gulp.task('default', ['praise'],()=>{
+	gulp.watch(['src/**/*.es6','!src/public/*/*.es'],['praise']) 
+});
+gulp.task('praise', () =>
+	gulp.src(['src/**/*.es6','!src/public/*/*.es6'])
+		.pipe(babel({
+			presets: ['env']
+		}))
+		.pipe(gulp.dest('./build'))
 );
