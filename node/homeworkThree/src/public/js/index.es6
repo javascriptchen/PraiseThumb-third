@@ -14,4 +14,4 @@ class PraiseButton {
   }
 }
 
-export default PraiseButton;
+export default PraiseButton
