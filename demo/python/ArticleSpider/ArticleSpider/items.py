@@ -4,8 +4,10 @@
 #
 # See documentation in:
 # https://doc.scrapy.org/en/latest/topics/items.html
-
 import scrapy
+import datetime
+
+from scrapy.loader.processors import MapCompose, TakeFirst, Join
 
 
 class ArticlespiderItem(scrapy.Item):
@@ -14,11 +16,24 @@ class ArticlespiderItem(scrapy.Item):
     pass
 
 
+def date_convert(value):
+    try:
+        create_date = datetime.datetime.strptime(value, "%Y/%m/%d").date()
+    except Exception as e:
+        create_date = datetime.datetime.now().date()
+
+    return create_date
+
 class JobBoleArticleItem(scrapy.Item):
-    title = scrapy.Field()
+    title = scrapy.Field(
+        input_processor=MapCompose()
+    )
     url = scrapy.Field()
     url_object_id = scrapy.Field()
-    create_date = scrapy.Field()
+    create_date = scrapy.Field(
+        input_processor=MapCompose(date_convert),
+        output_processor=TakeFirst()
+    )
     front_image_url = scrapy.Field()
     front_image_path = scrapy.Field()
     praise_nums = scrapy.Field()
