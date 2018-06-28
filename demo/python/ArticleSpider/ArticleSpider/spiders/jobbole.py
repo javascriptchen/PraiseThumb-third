@@ -5,7 +5,7 @@ import datetime
 from scrapy.loader import ItemLoader
 from scrapy.http import Request  # 将Request交给scrapy进行下载
 from urllib import parse
-from ArticleSpider.items import JobBoleArticleItem
+from ArticleSpider.items import JobBoleArticleItem, ArticleItemLoader
 from ArticleSpider.utils.common import get_md5
 
 
@@ -38,8 +38,7 @@ class JobboleSpider(scrapy.Spider):
         # 提取文章的具体字段
         front_image_url = response.meta.get("front_image_url", "")  # 用get取值不会报错
         # title = response.xpath("//div[@class='entry-header']/h1/text()").extract()[0]
-        # create_date = response.xpath("//p[@class='entry-meta-hide-on-mobile']/text()").extract()[0].strip().replace("·",
-        #                                                                                                             "").strip()
+        # create_date = response.xpath("//p[@class='entry-meta-hide-on-mobile']/text()").extract()[0].strip().replace("·","").strip()
         # praise_nums = response.xpath("//span[contains(@class,'vote-post-up')]/h10/text()").extract()[0]
         # fav_nums = response.xpath("//span[contains(@class,'bookmark-btn')]/text()").extract()[0]
         # fav_re = re.match('.*?(\d+).*', fav_nums)
@@ -75,7 +74,7 @@ class JobboleSpider(scrapy.Spider):
         # article_item["tags"] = tags
         # article_item["content"] = content
 
-        item_loader = ItemLoader(item=JobBoleArticleItem(), response=response)
+        item_loader = ArticleItemLoader(item=JobBoleArticleItem(), response=response)
         item_loader.add_css("title", ".entry-header h1::text")
         item_loader.add_value("url", response.url)
         item_loader.add_value("url_object_id", get_md5(response.url))
@@ -87,7 +86,7 @@ class JobboleSpider(scrapy.Spider):
         item_loader.add_css("tags", "p.entry-meta-hide-on-mobile a::text")
         item_loader.add_css("content", "div.entry")
 
-        article_item = item_loader.load_item()# 调用此方法才能解析item
+        article_item = item_loader.load_item()  # 调用此方法才能解析item
 
         yield article_item
         pass
