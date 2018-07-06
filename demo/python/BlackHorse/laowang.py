@@ -1,16 +1,25 @@
 class Person(object):
-    """"人的类""""
-    def __init__(self,name):
-        super(Person, self).__init__()#调用父类的__init__方法
+    """"人的类"""
+
+    def __init__(self, name):
+        super(Person, self).__init__()  # 调用父类的__init__方法
         self.name = name
+
+
+class Gun(object):
+    """"枪的类"""
+
+    def __init__(self, name):
+        super(Gun, self).__init__()  # 调用父类的__init__方法
+        self.name = name
+
 
 def main():
     """"用来控制整个程序的流程"""
-    pass
     # 1.创建一个老王对象
-
+    laowang = Person("老王")
     # 2.创建枪对象
-
+    gun = Gun("ak47")
     # 3.创建弹夹对象
 
     # 4.创建子弹对象
