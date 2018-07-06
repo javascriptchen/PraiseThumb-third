@@ -1,3 +1,9 @@
+class Person(object):
+    """"人的类""""
+    def __init__(self,name):
+        super(Person, self).__init__()#调用父类的__init__方法
+        self.name = name
+
 def main():
     """"用来控制整个程序的流程"""
     pass
