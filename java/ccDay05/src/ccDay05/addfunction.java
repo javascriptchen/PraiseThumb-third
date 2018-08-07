@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class addfunction {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("请输入第一个数字");
 		int a = scanner.nextInt();
