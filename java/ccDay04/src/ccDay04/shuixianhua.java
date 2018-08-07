@@ -16,6 +16,7 @@ public class shuixianhua {
 			}
 		}
 		System.out.println("总共有"+num+"个水仙花树");
+	
 	}
 
 }
