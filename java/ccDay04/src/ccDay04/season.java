@@ -22,6 +22,8 @@ public class season {
 		case 4 :
 			System.out.println("冬季");
 			break;
+		default:
+			System.out.println("没有您输入的季节");
 		}
 	}
 
