@@ -10,8 +10,9 @@ public class week {
 		char[] weeks = {'一','二','三','四','五','六','日'};
 		Scanner scanner = new Scanner(System.in);
 		int week = scanner.nextInt();
-		System.out.println("星期" + weeks[week-1]);
-		
+		if(week>=1&&week<=7) {
+			System.out.println("星期" + weeks[week-1]);
+			
+		}
 	}
-
 }
