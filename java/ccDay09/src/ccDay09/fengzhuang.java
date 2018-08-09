@@ -22,6 +22,14 @@ class Person {
 		return age;
 	}
 	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public void setAge(int myAge) {
 		if(myAge > 0 && myAge <150) {
 			age = myAge;
