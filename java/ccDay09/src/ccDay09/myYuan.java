@@ -19,10 +19,14 @@ class Yuan{
 		this.banjing = banjing;
 	}
 	
+	
+	
 	public Yuan() {
 		
 	}
-	
+
+
+
 	public void setBanJing(double banjing) {
 		this.banjing = banjing;
 	}
