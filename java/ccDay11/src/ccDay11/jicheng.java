@@ -14,7 +14,7 @@ class Animal {
 	int age;
 
 	public Animal() {
-		this(name, age);
+		
 	}
 
 	public Animal(String name, int age) {
