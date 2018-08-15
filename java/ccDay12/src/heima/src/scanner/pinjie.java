@@ -15,7 +15,7 @@ public class pinjie {
 		for (int i = 0; i < arr.length; i++) {
 			s = s + arr[i] + ", ";
 		}
-		System.out.println(s.substring(0,s.length()-2)+"]");
+		System.out.println(s.substring(0, s.length() - 2) + "]");
 	}
 
 }
