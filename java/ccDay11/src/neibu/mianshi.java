@@ -16,6 +16,10 @@ interface Inter2 {
 
 class Outer2 {
 	public static Inter2 method() {
-		return new Inter2() {public void show() {System.out.println("hello world");}};
+		return new Inter2() { 
+			public void show() {
+				System.out.println("hello world");
+			}
+		};
 	}
 }
