@@ -7,6 +7,7 @@ public class DemoStringBuffer {
 		System.out.println(array2String(arr));
 	}
 
+
 	public static String array2String(int[] arr) {
 		StringBuffer sb = new StringBuffer();
 		sb.append("[");
