@@ -1,6 +1,6 @@
 package com.heima.bean;
 
-public class Student {
+public class Person {
 	private String name;
 	private int age;
 	public String getName() {
@@ -15,18 +15,23 @@ public class Student {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	public Student(String name, int age) {
+	public Person(String name, int age) {
 		super();
 		this.name = name;
 		this.age = age;
 	}
-	public Student() {
+	public Person() {
 		super();
 		
 	}
 	@Override
 	public String toString() {
-		return "Student [name=" + name + ", age=" + age + "]";
+		return "[name=" + name + ", age=" + age + "]";
+	}
+	@Override
+	public boolean equals(Object obj) {
+		Person p = (Person)obj;
+		return this.name.equals(p.getName())&& this.age == p.getAge();
 	}
 	
 }
