@@ -64,10 +64,17 @@ public class Person implements Comparable<Person> {
 		return true;
 	}
 
+//	@Override
+//	public int compareTo(Person o) {
+//		int num = this.age - o.age;
+//		return num == 0 ? this.name.compareTo(o.name) : num;
+//	}
+
 	@Override
 	public int compareTo(Person o) {
-		int num = this.age - o.age;
-		return num == 0 ? this.name.compareTo(o.name) : num;
+		int length = this.name.length() - o.name.length();
+		int num = length == 0 ? this.name.compareTo(o.name) : length;
+		return num == 0 ? this.age - o.age : num;
 	}
 
 }
