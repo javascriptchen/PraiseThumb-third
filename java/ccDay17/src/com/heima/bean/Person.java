@@ -1,6 +1,6 @@
 package com.heima.bean;
 
-public class Person {
+public class Person implements Comparable<Person> {
 	private String name;
 	private int age;
 
@@ -62,6 +62,12 @@ public class Person {
 		} else if (!name.equals(other.name))
 			return false;
 		return true;
+	}
+
+	@Override
+	public int compareTo(Person o) {
+		int num = this.age - o.age;
+		return num == 0 ? this.name.compareTo(o.name) : num;
 	}
 
 }
