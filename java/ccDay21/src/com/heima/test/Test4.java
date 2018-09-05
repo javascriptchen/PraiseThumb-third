@@ -6,6 +6,8 @@ import java.util.Scanner;
 public class Test4 {
 
 	public static void main(String[] args) {
+		byte[] arr = {97,98,99};
+		System.out.println(new String(arr));
 		File dir = getFile();
 		printJavaFile(dir);
 	}
@@ -20,6 +22,7 @@ public class Test4 {
 				printJavaFile(file);
 			}
 		}
+		
 	}
 
 	private static File getFile() {
