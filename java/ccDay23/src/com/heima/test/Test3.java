@@ -25,7 +25,6 @@ public class Test3 {
 		newDir.mkdir();
 		File[] subFiles = src.listFiles();
 		for (File subfile : subFiles) {
-			System.out.println(subfile);
 			if (subfile.isFile()) {
 				BufferedInputStream bis = new BufferedInputStream(new FileInputStream(subfile));
 				BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(new File(newDir,subfile.getName())));
