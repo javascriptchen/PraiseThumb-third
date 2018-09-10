@@ -6,16 +6,15 @@ public class Demo2_thread {
 		MyThread mt = new MyThread();
 		mt.start();
 		for (int i = 0; i < 1000; i++) {
-			System.out.println("b");
+			System.out.println("aaa");
 		}
 	}
-
 }
 
 class MyThread extends Thread{
 	public void run() {
 		for (int i = 0; i < 1000; i++) {
-			System.out.println("aaaaaa");
+			System.out.println("bbbbb");
 		}
 	}
 }
