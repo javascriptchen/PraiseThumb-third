@@ -62,5 +62,10 @@ public class Person {
 			return false;
 		return true;
 	}
-
+	public void eat(int num) {
+		System.out.println(1+num);
+	}
+	public void eat() {
+		System.out.println(1);
+	}
 }
