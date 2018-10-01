@@ -17,4 +17,22 @@ public class TestUserDaoImpl {
 		UserDao dao = new UserDaoImpl();
 		dao.login("admin","10087' or '1=1");
 	}
+	
+	@Test
+	public void testInsert() {
+		UserDao dao = new UserDaoImpl();
+		dao.insert("obama", "12345");
+	}
+	
+	@Test
+	public void testDelete() {
+		UserDao dao = new UserDaoImpl();
+		dao.delete(1);
+	}
+	
+	@Test
+	public void testUpdate() {
+		UserDao dao = new UserDaoImpl();
+		dao.update(2, "mysql");
+	}
 }
