@@ -4,7 +4,7 @@ const LiveReloadPlugin = require("webpack-livereload-plugin"); //监控浏览器
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 
-// const HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
 	entry: {
@@ -61,5 +61,14 @@ module.exports = {
 			appendScriptTag: true
 		}), //将<LiveReload>的script自动加入<head>中
 		new ExtractTextPlugin("public/css/[name]-[hash:5].css"),
+		new HtmlWebpackPlugin({
+			filename: "./views/index.html",
+			template: "src/views/index.html"
+		}),
+		new HtmlWebpackPlugin({
+			filename: "./views/layout.html",
+			template: "src/views/layout.html",
+			inject:false
+		})
 	]
 };
