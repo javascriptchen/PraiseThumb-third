@@ -76,6 +76,22 @@ module.exports = {
 				}
 			},
 			canPrint: true,
+		}),
+		new HtmlWebpackPlugin({
+			filename: "./widget/index.html",
+			template: "src/widget/index.html",
+			inject: false
+		}),
+		new HtmlWebpackPlugin({
+			filename: "./views/layout.html",
+			template: "src/widget/layout.html",
+			inject: false
+		}),
+		new HtmlWebpackPlugin({
+			filename: "./views/index.html",
+			template: "src/views/index.js",
+			chunks: ["vendor", "index", "tag"], //传入要插入的js文件
+			inject: false
 		})
 	]
 };

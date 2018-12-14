@@ -1,13 +1,12 @@
 const path = require("path");
 const webpack = require("webpack");
 const LiveReloadPlugin = require("webpack-livereload-plugin"); //监控浏览器自动更新
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");//抽取css
 const CleanWebpackPlugin = require("clean-webpack-plugin");
-
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");//自动插入js/css，自动生成html
 
 module.exports = {
-	entry: {
+	entry: {// 这边有几个entry文件，就会出现几个js文件
 		index: [
 			path.join(__dirname, "../src/public/script/index.es6"),
 			path.join(__dirname, "../src/public/script/index.js")
@@ -41,14 +40,12 @@ module.exports = {
 		]
 	},
 	plugins: [
-		// 删除上次编译留下的文件，看着碍眼
-		new CleanWebpackPlugin(["build/public/**/*"], {
+		new CleanWebpackPlugin(["build/public/**/*"], {// 删除上次编译留下的文件，看着碍眼
 			root: path.join(__dirname,"../"), //根目录
 			verbose: true, //开启在控制台输出信息
 			dry: false //启用删除文件
 		}),
-		// 打包公用js
-		new webpack.optimize.CommonsChunkPlugin({
+		new webpack.optimize.CommonsChunkPlugin({// 打包公用js
 			name: "vendor",
 			filename: "public/scripts/common/vendor-[hash:5].js",
 		}),
@@ -57,9 +54,9 @@ module.exports = {
 				NODE_ENV: "dev"
 			}
 		}),
-		new LiveReloadPlugin({
+		new LiveReloadPlugin({ //将<LiveReload>的script自动加入<head>中
 			appendScriptTag: true
-		}), //将<LiveReload>的script自动加入<head>中
+		}),
 		new ExtractTextPlugin("public/css/[name]-[hash:5].css"),
 		new HtmlWebpackPlugin({
 			filename: "./widget/index.html",
@@ -74,7 +71,7 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			filename: "./views/index.html",
 			template: "src/views/index.js",
-			chunks: ["vendor", "index", "tag"],
+			chunks: ["vendor", "index", "tag"],//传入要插入的js文件
 			inject:false
 		})
 	]
