@@ -62,12 +62,19 @@ module.exports = {
 		}), //将<LiveReload>的script自动加入<head>中
 		new ExtractTextPlugin("public/css/[name]-[hash:5].css"),
 		new HtmlWebpackPlugin({
-			filename: "./views/index.html",
-			template: "src/views/index.html"
+			filename: "./widget/index.html",
+			template: "src/widget/index.html",
+			inject:false
 		}),
 		new HtmlWebpackPlugin({
 			filename: "./views/layout.html",
-			template: "src/views/layout.html",
+			template: "src/widget/layout.html",
+			inject:false
+		}),
+		new HtmlWebpackPlugin({
+			filename: "./views/index.html",
+			template: "src/views/index.js",
+			chunks: ["vendor", "index", "tag"],
 			inject:false
 		})
 	]

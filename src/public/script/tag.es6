@@ -16,9 +16,9 @@ xtag.register("x-praise", {
 			let _this = this;
 			p.clickAction();
 			let annimation = _this.querySelector("#animation");
-			animation.className("hide num");
+			animation.className = "hide num";
 			setTimeout(() => {
-				annimation.className("hide");
+				annimation.className = "hide";
 			}, 800);
 		}
 	},
@@ -29,7 +29,7 @@ xtag.register("x-praise", {
 				if (f) {
 					clearTimeout(f);
 				} else {
-					f = setTimeout(() => {
+					setTimeout(() => {
 						_this.praise();
 					}, 500);
 				}
